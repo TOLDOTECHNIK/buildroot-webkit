@@ -35,7 +35,7 @@ All other RPi 1 boards should work as well.
 Below you will find the explanations of how the custom settings are made on the final Raspberry image installed on the SD card. If you want to apply the settings before building, you can customize the `board/toldotechnik_rpi/rootfs-overlay` folder. The link for the `url.txt` you will find in the `board/toldotechnik_rpi/post-image.sh` script.
 
 ### URL for the browser
-Create `/boot/url.txt` and insert the desired link in the first line (e.g. http://localhost).
+Create a `/boot/url.txt` file and insert the desired link in the first line (e.g. http://localhost).
 If the file exists, the browser will start automatically after boot and the url gets loaded in it.
 
 ### WiFi configuration
