@@ -1,0 +1,24 @@
+#! /bin/sh
+
+NAME=node
+DAEMON=/usr/bin/${NAME}
+echo "A: $DAEMON"
+# Gracefully exit if the package has been removed.
+test -x $DAEMON || exit 0
+
+case "$1" in
+  start)
+    NODE_PATH=/usr/lib/node_modules
+    export NODE_PATH
+    $DAEMON /var/node/server.js > /dev/null 2>&1 &
+    ;;
+  stop)
+    killall -q $NAME
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

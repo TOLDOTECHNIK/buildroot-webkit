@@ -1,0 +1,2 @@
+TERM=xterm
+export TERM

@@ -1,0 +1,22 @@
+#! /bin/sh
+
+NAME=psplash
+DAEMON=/usr/bin/$NAME
+echo "A: $DAEMIN"
+# Gracefully exit if the package has been removed.
+test -x $DAEMON || exit 0
+
+case "$1" in
+  start)
+    $DAEMON > /dev/null 2>&1 &
+    ;;
+  stop)
+    killall -q $NAME
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

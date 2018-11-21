@@ -1,0 +1,194 @@
+diff --git a/package/wpe/Config.in b/package/wpe/Config.in
+index c5a84398ab..356fb2b017 100644
+--- a/package/wpe/Config.in
++++ b/package/wpe/Config.in
+@@ -7,4 +7,5 @@ source "package/wpe/wpewebkit/Config.in"
+ if BR2_PACKAGE_WPEWEBKIT
+ source "package/wpe/wpebackend/Config.in"
+ source "package/wpe/wpebackend-rdk/Config.in"
++source "package/wpe/wpelauncher/Config.in"
+ endif
+diff --git a/package/wpe/wpelauncher/Config.in b/package/wpe/wpelauncher/Config.in
+new file mode 100644
+index 0000000000..974345b520
+--- /dev/null
++++ b/package/wpe/wpelauncher/Config.in
+@@ -0,0 +1,5 @@
++config BR2_PACKAGE_WPELAUNCHER
++	bool "wpelauncher"
++	depends on BR2_PACKAGE_WPEWEBKIT
++	help
++	  WPE WebKit launcher app (will be deprecated soon).
+diff --git a/package/wpe/wpelauncher/S90wpe b/package/wpe/wpelauncher/S90wpe
+new file mode 100644
+index 0000000000..dd83fb8a0c
+--- /dev/null
++++ b/package/wpe/wpelauncher/S90wpe
+@@ -0,0 +1,46 @@
++#!/bin/sh
++
++WPE_URL_FILE="/boot/wpe.txt"
++
++start() {
++	echo -n "Starting WPE: "
++	if [ -e "$WPE_URL_FILE" ]; then
++		URL=`head -1 $WPE_URL_FILE`
++		if [ -n "$URL" ]; then
++			/usr/bin/wpe --loop $URL &> /dev/null &
++			echo "OK"
++		else
++			echo "NO URL"
++		fi
++	else
++		echo "NO FILE"
++	fi
++}
++
++stop() {
++	echo -n "Stopping WPE: "
++	killall wpe WPELauncher WPEWebProcess WPENetworkProcess &> /dev/null
++	echo "OK"
++}
++
++restart() {
++	stop
++	start
++}
++
++case "$1" in
++	start)
++		start
++		;;
++	stop)
++		stop
++	;;
++	restart|reload)
++		restart
++		;;
++	*)
++		echo "Usage: $0 {start|stop|restart}"
++		exit 1
++esac
++
++exit $?
+diff --git a/package/wpe/wpelauncher/wpe b/package/wpe/wpelauncher/wpe
+new file mode 100644
+index 0000000000..c4f9cc7c72
+--- /dev/null
++++ b/package/wpe/wpelauncher/wpe
+@@ -0,0 +1,58 @@
++#!/bin/sh
++
++# Enable cookie persistent storage
++export WPE_SHELL_COOKIE_STORAGE=1
++
++# FIXME: gst-gl's dispmanx backend is messing up with our compositor
++# when it creates its initial 16x16px surface.
++export GST_GL_WINDOW=dummy
++
++# Use cairo noaa compositor
++export CAIRO_GL_COMPOSITOR=noaa
++
++# WebInspector
++export WEBKIT_INSPECTOR_SERVER=0.0.0.0:9998
++
++# FPS
++#export WPE_THREADED_COMPOSITOR_FPS=1
++
++# RPI mouse support
++#export WPE_BCMRPI_CURSOR=1
++
++# RPI touch support
++#export WPE_BCMRPI_TOUCH=1
++
++WPE_UPDATE="/usr/bin/wpe-update"
++if [ -e "$WPE_UPDATE" ];
++then
++	WPE_UPDATE_RESULT=$($WPE_UPDATE)
++fi
++
++#export TZ=$(wget -qO- http://jsonip.metrological.com/ | sed -e 's/^.*"tz":"\([^"]*\)".*$/\1/')
++
++WPE_CONF_FILE="/boot/wpe.conf"
++WPE_CONFIG=""
++if [ -e "$WPE_CONF_FILE" ];
++then
++	WPE_CONFIG=$(grep -v '^#' $WPE_CONF_FILE | tr -d "\r" | tr "\n" " " | tr -s " ")
++fi
++
++# Core dumps
++#echo 1 > /proc/sys/kernel/core_uses_pid
++#echo 2 > /proc/sys/fs/suid_dumpable
++#echo "/root/cores/core-pid_%p--process%E" > /proc/sys/kernel/core_pattern
++#mkdir -p /root/cores
++#ulimit -c unlimited
++
++# The PREFIX env var can be useful when debugging athol/WPELauncher with gdbserver.
++if [ "$1" = "--loop" ];
++then
++	export HOME=/root
++	mkdir -p $HOME
++	while true;
++	do
++		cd /root && eval "$WPE_CONFIG $PREFIX WPELauncher \"$2\""
++	done
++else
++	cd /root && eval "$WPE_CONFIG $PREFIX WPELauncher \"$1\""
++fi
+diff --git a/package/wpe/wpelauncher/wpe.conf b/package/wpe/wpelauncher/wpe.conf
+new file mode 100644
+index 0000000000..61eee54771
+--- /dev/null
++++ b/package/wpe/wpelauncher/wpe.conf
+@@ -0,0 +1,11 @@
++# WebInspector
++WEBKIT_INSPECTOR_SERVER=0.0.0.0:9998
++
++# FPS
++WPE_THREADED_COMPOSITOR_FPS=1
++
++# RPI mouse support
++#WPE_BCMRPI_CURSOR=1
++
++# Timezone
++#TZ=CET-1CEST,M3.5.0,M10.5.0/3
+diff --git a/package/wpe/wpelauncher/wpe.txt b/package/wpe/wpelauncher/wpe.txt
+new file mode 100644
+index 0000000000..234eeefe9b
+--- /dev/null
++++ b/package/wpe/wpelauncher/wpe.txt
+@@ -0,0 +1 @@
++http://youtube.com/tv
+diff --git a/package/wpe/wpelauncher/wpelauncher.mk b/package/wpe/wpelauncher/wpelauncher.mk
+new file mode 100644
+index 0000000000..49b2de7e0a
+--- /dev/null
++++ b/package/wpe/wpelauncher/wpelauncher.mk
+@@ -0,0 +1,27 @@
++###############################################################################
++#
++# WPELauncher
++#
++################################################################################
++
++WPELAUNCHER_VERSION = 371d4b0bcd96723d1d8383317c365f0935be3023
++WPELAUNCHER_SITE = $(call github,WebPlatformForEmbedded,WPEWebKitLauncher,$(WPELAUNCHER_VERSION))
++
++WPELAUNCHER_DEPENDENCIES = wpewebkit
++
++define WPELAUNCHER_BINS
++	$(INSTALL) -D -m 0644 package/wpe/wpelauncher/wpe.{txt,conf} $(BINARIES_DIR)/
++	$(INSTALL) -D -m 0755 package/wpe/wpelauncher/wpe $(TARGET_DIR)/usr/bin
++endef
++
++define WPELAUNCHER_AUTOSTART
++	$(INSTALL) -D -m 0755 package/wpe/wpelauncher/S90wpe $(TARGET_DIR)/etc/init.d
++endef
++
++WPELAUNCHER_POST_INSTALL_TARGET_HOOKS += WPELAUNCHER_BINS
++
++ifeq ($(BR2_PACKAGE_PLUGIN_WEBKITBROWSER),)
++WPELAUNCHER_POST_INSTALL_TARGET_HOOKS += WPELAUNCHER_AUTOSTART
++endif
++
++$(eval $(cmake-package))

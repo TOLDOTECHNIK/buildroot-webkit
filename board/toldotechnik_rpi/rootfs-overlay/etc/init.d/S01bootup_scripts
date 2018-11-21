@@ -1,0 +1,39 @@
+#!/bin/sh
+
+WPA_SUPPLICANT_FILE="/boot/wpa_supplicant.conf"
+
+start() {
+	echo -n "Starting..."
+	if [ -e "$WPA_SUPPLICANT_FILE" ]; then
+		mv $WPA_SUPPLICANT_FILE /etc/
+		echo "WPA SUPPLICANT FILE NOT FOUND MOVED"
+	else
+		echo "WPA SUPPLICANT FILE NOT FOUND"
+	fi
+}
+
+stop() {
+	echo "OK"
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+	start)
+		start
+		;;
+	stop)
+		stop
+	;;
+	restart|reload)
+		restart
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac
+
+exit $?
