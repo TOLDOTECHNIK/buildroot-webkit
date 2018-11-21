@@ -9,6 +9,7 @@
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter. See: 
 - simple wpe-launcher for launching browser with custom url
 - nano text editor
+- NO keyboard or mouse input yet
 
 By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
 
