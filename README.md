@@ -79,7 +79,7 @@ Builtin local web page supporting CEC inputs.
 If the file `/boot/url.txt` exists the fullscreen browser will start automatically after boot. You will find the init script here: `/etc/init.d/S90wpe`
 
 ### SSH, serial console
-SSH (dropbear) is enabled by default. You can ssh into it with ssh `root@YOUR_RPI_IP`
+SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@YOUR_RPI_IP`
 
 The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
