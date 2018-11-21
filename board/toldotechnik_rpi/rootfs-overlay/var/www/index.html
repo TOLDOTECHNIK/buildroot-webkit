@@ -4,120 +4,11 @@
 <head>
   <title>RPi Test</title>
 
+  <link rel="stylesheet" href="css/style.css">
+
   <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
   <script src="vendor/socket.io/socket.io.slim.js"></script>
 
-  <style>
-    body {
-      background-color: rgb(211, 84, 0);
-    }
-
-    .title {
-      padding-bottom: 50px;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 30px;
-    }
-
-    .center {
-      width: 100%;
-      text-align: center;
-    }
-
-    audio {
-      visibility: hidden;
-    }
-
-    .sk-cube-grid {
-      width: 200px;
-      height: 200px;
-      margin: 100px auto;
-    }
-
-    .sk-cube-grid .sk-cube {
-      width: 33%;
-      height: 33%;
-      background-color: white;
-      float: left;
-      -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-      animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-    }
-
-    .sk-cube-grid .sk-cube1 {
-      -webkit-animation-delay: 0.2s;
-      animation-delay: 0.2s;
-    }
-
-    .sk-cube-grid .sk-cube2 {
-      -webkit-animation-delay: 0.3s;
-      animation-delay: 0.3s;
-    }
-
-    .sk-cube-grid .sk-cube3 {
-      -webkit-animation-delay: 0.4s;
-      animation-delay: 0.4s;
-    }
-
-    .sk-cube-grid .sk-cube4 {
-      -webkit-animation-delay: 0.1s;
-      animation-delay: 0.1s;
-    }
-
-    .sk-cube-grid .sk-cube5 {
-      -webkit-animation-delay: 0.2s;
-      animation-delay: 0.2s;
-    }
-
-    .sk-cube-grid .sk-cube6 {
-      -webkit-animation-delay: 0.3s;
-      animation-delay: 0.3s;
-    }
-
-    .sk-cube-grid .sk-cube7 {
-      -webkit-animation-delay: 0s;
-      animation-delay: 0s;
-    }
-
-    .sk-cube-grid .sk-cube8 {
-      -webkit-animation-delay: 0.1s;
-      animation-delay: 0.1s;
-    }
-
-    .sk-cube-grid .sk-cube9 {
-      -webkit-animation-delay: 0.2s;
-      animation-delay: 0.2s;
-    }
-
-    @-webkit-keyframes sk-cubeGridScaleDelay {
-
-      0%,
-      70%,
-      100% {
-        -webkit-transform: scale3D(1, 1, 1);
-        transform: scale3D(1, 1, 1);
-      }
-
-      35% {
-        -webkit-transform: scale3D(0, 0, 1);
-        transform: scale3D(0, 0, 1);
-      }
-    }
-
-    @keyframes sk-cubeGridScaleDelay {
-
-      0%,
-      70%,
-      100% {
-        -webkit-transform: scale3D(1, 1, 1);
-        transform: scale3D(1, 1, 1);
-      }
-
-      35% {
-        -webkit-transform: scale3D(0, 0, 1);
-        transform: scale3D(0, 0, 1);
-      }
-    }
-  </style>
   <script>
     $(document).ready(function () {
       // socket.io
@@ -140,20 +31,17 @@
 </head>
 
 <body>
-  <div class="sk-cube-grid">
-    <div class="sk-cube sk-cube1"></div>
-    <div class="sk-cube sk-cube2"></div>
-    <div class="sk-cube sk-cube3"></div>
-    <div class="sk-cube sk-cube4"></div>
-    <div class="sk-cube sk-cube5"></div>
-    <div class="sk-cube sk-cube6"></div>
-    <div class="sk-cube sk-cube7"></div>
-    <div class="sk-cube sk-cube8"></div>
-    <div class="sk-cube sk-cube9"></div>
+  <div class="container">
+    <div class="item item-1"></div>
+    <div class="item item-2"></div>
+    <div class="item item-3"></div>
+    <div class="item item-4"></div>
   </div>
-  <div class="title center" id="txtCEC">Press some buttons on your tv remote. (Up, Down, ...)</div>
-  <div class="center">Index page located in /var/www/</div>
-  <div class="center">Music: https://www.bensound.com</div>
+  <div class="bottom">
+    <div class="title center" id="txtCEC">Press some buttons on your tv remote. (Up, Down, ...)</div>
+    <div class="center">Index page located in /var/www/</div>
+    <div class="center">Music: https://www.bensound.com</div>
+  </div>
 </body>
 
 </html>
