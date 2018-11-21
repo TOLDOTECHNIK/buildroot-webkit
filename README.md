@@ -27,6 +27,7 @@ Most of the adaptions are stored in the `./board/toldotechnik_rpi/rootfs-overlay
 
 Two board configurations are available right now:
 - `toldotechnik_rpi0_wpe_defconfig` for RPi Zero (V1.2) and RPi Zero W (V1.1), both tested
+
 All other RPi 1 boards should work as well.
 - `toldotechnik_rpi3_wpe_defconfig` for RPi 3 B (V1.2), tested
 
