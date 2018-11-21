@@ -90,8 +90,8 @@ Due to bootup speed improvement eth0 is disabled by default. You can enable it b
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-11-21)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-11-21)
 
 Image files can be "burned" the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
