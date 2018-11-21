@@ -1,7 +1,7 @@
 ## Features
 
 - boots silently with boot splash including progress bar
-- boots directly into a full screen web browser
+- boots directly into a full screen web browser (video and audio playback capable)
 - Node.js webserver included for hosting local web pages displayed in the browser
 - HDMI CEC support
 - SSH enabled
