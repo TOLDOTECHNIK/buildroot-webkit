@@ -120,11 +120,11 @@ Clone our repo.
 
     git clone https://github.com/TOLDOTECHNIK/buildroot-webkit.git
 
-Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `f2ef54d1e0b0c5da80af1c69b31ed2f30cff1d80` as of 2018-11-19.
+Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `1a0e122f93a0f64516676ffe61412a397a66ae73` as of 2018-11-22.
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
-	git reset --hard f2ef54d1e0b0c5da80af1c69b31ed2f30cff1d80
+	git reset --hard 1a0e122f93a0f64516676ffe61412a397a66ae73
 
 Add our custom board folder
 
