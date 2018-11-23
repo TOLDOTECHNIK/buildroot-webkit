@@ -105,7 +105,7 @@ To solve this issue we use these binaries  https://nodejs.org/download/release/v
 Create a sub folder `mkdir -p ./board/toldotechnik_rpi/rootfs-overlay/usr/bin` and copy the `node` binary into it.
 
 ### OSX terminal error when using nano
-The `Error opening terminal: xterm-256color` we solved by exporting the `TERM=xterm` variable in `/root/.profile`.
+The `Error opening terminal: xterm-256color` we solved by creating the `/usr/share/terminfo/x/` folder and put in the `xterm-256color` database file.
 
 ### Raspberry Pis without onboard WiFi
 If your board does not have WiFi you can attach some USB Ralink WiFi adapters. We already included those drivers. RTL8188CUS and RT5370 work for sure.
