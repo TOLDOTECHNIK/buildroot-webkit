@@ -111,6 +111,8 @@ Prebuilt images are freely available from our server.
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
+If you're using Etcher, you can directly use the zip files. You don't need to extract them.
+
 ## Known issues
 ### Node.js
 Buildroot compiled Node.js binaries do start much slower than prebuilt binaries from nodejs.org
