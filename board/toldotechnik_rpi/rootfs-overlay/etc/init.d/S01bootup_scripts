@@ -6,9 +6,9 @@ start() {
 	echo -n "Starting..."
 	if [ -e "$WPA_SUPPLICANT_FILE" ]; then
 		mv $WPA_SUPPLICANT_FILE /etc/
-		echo "WPA SUPPLICANT FILE NOT FOUND MOVED"
+		echo "/boot/wpa_supplicant.conf moved to /etc/. done."
 	else
-		echo "WPA SUPPLICANT FILE NOT FOUND"
+		echo "/boot/wpa_supplicant.conf not found, so no action. done."
 	fi
 }
 
