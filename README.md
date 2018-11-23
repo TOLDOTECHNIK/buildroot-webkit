@@ -102,7 +102,7 @@ Due to bootup speed improvement eth0 is disabled by default. You can enable it b
 
 ### Auto-expand rootfs on first boot
 The `S22resize_rootpart` init script expands the root filesystem to the maximum flash disk size on the first boot.
-Firstly it expands the root partition, then a reboot is invoked. After second boot the root filesystem gets expanded to match the partition size. After that the system is ready to used and expand init scripts gets removed.
+Firstly it expands the root partition, then a reboot is invoked. After second boot the root filesystem gets expanded to match the partition size. After that the system is ready to use and expand init scripts gets removed.
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
