@@ -85,6 +85,14 @@ SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@YOUR_RP
 
 The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
+Console output on ttyAMA0 while booting
+![console output while booting](https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/ttyAMA0-boot-messages.gif)
+
+#### Wiring
+![USB serial converter to RPi wiring](https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/USB-serial-wiring.png)
+converter (TX) - green - (RX) RPi
+converter (RX) - red - (TX) RPi
+
 **Root password is** `root`
 Please change it after first boot: `passwd root`
 
