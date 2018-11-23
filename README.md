@@ -9,6 +9,7 @@
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter. See: 
 - simple wpe-launcher for launching browser with custom url
 - nano text editor
+- auto-expand the persistent rootfs on the first boot
 - NO keyboard or mouse input yet
 
 By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
@@ -89,6 +90,10 @@ Please change it after first boot: `passwd root`
 
 ### Wired network interface
 Due to bootup speed improvement eth0 is disabled by default. You can enable it by editing `/etc/network/interfaces`
+
+### Auto-expand rootfs on first boot
+The `S22resize_rootpart` init script expands the root filesystem to the maximum flash disk size on the first boot.
+Firstly it expands the root partition, then a reboot is invoked. After second boot the root filesystem gets expanded to match the partition size. After that the system is ready to used and expand init scripts gets removed.
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.

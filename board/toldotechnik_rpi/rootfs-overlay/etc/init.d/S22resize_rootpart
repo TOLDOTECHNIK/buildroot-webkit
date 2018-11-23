@@ -1,0 +1,46 @@
+#! /bin/sh
+
+case "$1" in
+  start)
+    echo "Expanding the root partition..."
+    PART_START=$(parted /dev/mmcblk0 -ms unit chs p | grep ^2: | cut -f 2 -d:)
+    DISK_SIZE=$(parted /dev/mmcblk0 -ms unit chs p | grep /dev/mmcblk0: | cut -f 2 -d:)
+    parted /dev/mmcblk0 &>/dev/null <<EOF
+unit chs
+rm 2
+i
+mkpart primary $PART_START $DISK_SIZE
+i
+i
+q
+EOF
+
+cat <<\EOF > /etc/init.d/S23resize_rootfs &&
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Expanding the root filesystem..."
+    resize2fs /dev/mmcblk0p2 &>/dev/null
+    rm /etc/init.d/S23resize_rootfs
+    echo  "Done."
+    ;;
+  *)
+    echo "Usage: $0 {start}" >&2
+    exit 1
+    ;;
+esac
+EOF
+
+    chmod +x /etc/init.d/S23resize_rootfs
+
+    rm /etc/init.d/S22resize_rootpart
+    echo "Reboot now."
+    sleep 2
+    reboot
+    ;;
+  *)
+    echo "Usage: $0 {start}" >&2
+    exit 1
+    ;;
+esac
