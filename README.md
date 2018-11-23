@@ -1,16 +1,16 @@
 ## Features
 
-- boots silently with boot splash including progress bar
-- boots directly into a full screen web browser (video and audio playback capable)
-- Node.js webserver included for hosting local web pages displayed in the browser
-- HDMI CEC support
+- boots silently with **boot splash** including progress bar
+- boots directly into a **full screen web browser** (video and audio playback capable)
+- Node.js **webserver** included for hosting local web pages displayed in the browser
+- HDMI **CEC** support
 - SSH enabled
-- wpa_supplicant, RPi Wireless drivers, Ralink drivers
+- **wpa_supplicant**, RPi Wireless drivers, Ralink drivers
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter. See: 
-- simple wpe-launcher for launching browser with custom url
+- simple **wpe-launcher** for launching browser with custom url
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
-- NO keyboard or mouse input yet
+- **NO** keyboard or mouse input yet
 
 By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
 
