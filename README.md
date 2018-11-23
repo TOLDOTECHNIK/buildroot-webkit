@@ -92,6 +92,7 @@ Console output on ttyAMA0 while booting
 
 #### Wiring
 converter (TX) - green - (RX) RPi
+
 converter (RX) - red - (TX) RPi
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/USB-serial-wiring.png" width="400" />
