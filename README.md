@@ -57,7 +57,7 @@ If the file exists at boot time it gets **moved** to /etc/wpa_supplicant.conf an
 ### Boot splash screen
 Our custom company boot splash (see `patches/psplash` folder) is enabled by default. *Please contact us if you want another boot splash logo in a prebuilt image.*
 
-![default splash screen](https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/splash-screen.png)
+<img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/splash-screen.png" width="400" />
 
 We took some init scripts and appended the `/usr/bin/psplash-write "PROGRESS xy"`, so the progress bar increases while booting and decreases when shutdown is in progress.
 
@@ -75,7 +75,8 @@ libcec and corresponding node module are both preinstalled so node apps can rece
 See `/var/node/server.js` for an example.
 
 Builtin local web page supporting CEC inputs.
-![localhost sample page and CEC demo](https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/cec-test.gif)
+
+<img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/cec-test.gif" width="400" />
 
 ### WPE WebKit browser
 If the file `/boot/url.txt` exists the fullscreen browser will start automatically after boot. You will find the init script here: `/etc/init.d/S90wpe`
@@ -86,14 +87,18 @@ SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@YOUR_RP
 The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
 Console output on ttyAMA0 while booting
-![console output while booting](https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/ttyAMA0-boot-messages.gif)
+
+<img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/ttyAMA0-boot-messages.gif" width="400" />
 
 #### Wiring
-![USB serial converter to RPi wiring](https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/USB-serial-wiring.png)
 converter (TX) - green - (RX) RPi
 converter (RX) - red - (TX) RPi
 
-**Root password is** `root`
+<img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/USB-serial-wiring.png" width="400" />
+
+### Root password
+The root password is `root`
+
 Please change it after first boot: `passwd root`
 
 ### Wired network interface
