@@ -81,6 +81,10 @@ See `/var/node/server.js` for an example.
 ### WPE WebKit browser
 If the file `/boot/url.txt` exists the fullscreen browser will start automatically after boot. You will find the init script here: `/etc/init.d/S90wpe`
 
+You can call the web inspector from an external client browser (tested with Chrome and Safari, not working with Firefox). `http://YOUR_RPI_IP:9998`
+
+If you want do disable it, you can comment out the `export WEBKIT_LEGACY_INSPECTOR_SERVER=0.0.0.0:9998` line in `/usr/bin/wpe`
+
 ### SSH, serial console
 SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@YOUR_RPI_IP`
 
