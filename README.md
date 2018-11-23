@@ -41,16 +41,7 @@ Create a `/boot/url.txt` file and insert the desired link in the first line (e.g
 If the file exists, the browser will start automatically after boot and the url gets loaded in it.
 
 ### WiFi configuration
-Create `/boot/wpa_supplicant.conf` and insert your WiFi settings. A configuration sample can be found here:
-
-    ctrl_interface=/var/run/wpa_supplicant
-    ap_scan=1
-    # Typical minimal wifi setup:
-    network={
-        ssid="--your-ESSID--"
-        key_mgmt=WPA-PSK
-        psk="--your-password--"
-    }
+You can modify the sample `/boot/wpa_supplicant.conf.example` file on your SD card and insert your WiFi settings. After that you should rename the file into `wpa_supplicant.conf`
 
 If the file exists at boot time it gets **moved** to /etc/wpa_supplicant.conf and network should start up immediately. Changes are retained even after restarts. If WiFi credentials are missing, boot times will be much longer.
 

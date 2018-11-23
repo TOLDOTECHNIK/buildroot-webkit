@@ -38,9 +38,20 @@ disable_splash=1
 enable_uart=1
 __EOF__
 
-# Create sample url.txt
+# Create a sample url.txt
 cat << __EOF__ > "${BINARIES_DIR}/url.txt"
 http://localhost
+__EOF__
+
+# Create a sample wpa_supplicant file
+cat << __EOF__ > "${BINARIES_DIR}/wpa_supplicant.conf.example"
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+  ssid="YOUR_SSID"
+  psk="YOUR_WIFI_PASSWORD"
+}
 __EOF__
 
 echo "Generating SD image"
