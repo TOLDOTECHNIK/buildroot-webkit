@@ -74,7 +74,7 @@ Local web server content is located here: `/var/www/`
 libcec and corresponding node module are both preinstalled so node apps can receive HDMI CEC messages.
 See `/var/node/server.js` for an example.
 
-Builtin local web page supporting CEC inputs.
+**Builtin local web page supporting CEC inputs.**
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/cec-test.gif" width="400" />
 
@@ -86,7 +86,7 @@ SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@YOUR_RP
 
 The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
-Console output on ttyAMA0 while booting
+**Console output on ttyAMA0 while booting**
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/ttyAMA0-boot-messages.gif" width="400" />
 
