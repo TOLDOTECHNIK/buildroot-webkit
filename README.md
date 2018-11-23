@@ -91,9 +91,9 @@ The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/ttyAMA0-boot-messages.gif" width="400" />
 
 #### Wiring
-converter (TX) - green - (RX) RPi
+converter (RX) - green - (TX) RPi
 
-converter (RX) - red - (TX) RPi
+converter (TX) - red - (RX) RPi
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/USB-serial-wiring.png" width="400" />
 
