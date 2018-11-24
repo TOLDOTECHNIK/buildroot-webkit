@@ -18,7 +18,7 @@ By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, 
 
 For our product expansion, we were looking for a suitable buildroot system that could launch directly into a full-screen browser. The original Buildroot offers the Qt WebEngine package ready to compile, but it is much slower in performance than usual WebKit implementations.
 Unfortunately, we couldn't find a solution which was suitable for our purposes.
-Compiling some of them was partly faulty, not all necessary boards were supported and the WebKit browser could only be started inconveniently with current build configurations.
+Compiling some of them was partly faulty, not all boards were supported and the WebKit browser cannot be started conveniently easy.
 After a very long time of work we now have made all desired adjustments. In this repository we now offer them all to the public.
 
 Many thanks to https://github.com/hlev for supporting us!
