@@ -6,7 +6,7 @@
 - HDMI **CEC** support
 - SSH enabled
 - **wpa_supplicant**, RPi Wireless drivers, Ralink drivers
-- The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter. See: 
+- The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter.
 - simple **wpe-launcher** for launching browser with custom url
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
@@ -136,11 +136,11 @@ Clone our repo.
 
     git clone https://github.com/TOLDOTECHNIK/buildroot-webkit.git
 
-Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `1a0e122f93a0f64516676ffe61412a397a66ae73` as of 2018-11-22.
+Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `b67092fc5c92b3c09ad845296b3dc2734b91a66c` as of 2018-11-26.
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
-	git reset --hard 1a0e122f93a0f64516676ffe61412a397a66ae73
+	git reset --hard b67092fc5c92b3c09ad845296b3dc2734b91a66c
 
 Add our custom board folder
 
