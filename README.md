@@ -111,13 +111,13 @@ Prebuilt images are freely available from our server.
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
-If you're using Etcher, you can directly use the zip files. You don't need to extract them.
+If you're using Etcher, you can take the zip files directly. You don't need to extract them.
 
 ## Known issues
 ### Node.js
-Buildroot compiled Node.js binaries do start much slower than prebuilt binaries from nodejs.org
+Buildroot compiled Node.js binaries do start much slower than prebuilt ones from nodejs.org
 That's why on Raspberry Pi Zero the browser gets loaded before the internal Node.js server is ready. This then results in a blank page screen.
-To solve this issue we use these binaries  https://nodejs.org/download/release/v8.12.0/node-v8.12.0-linux-armv6l.tar.xz
+To solve this issue we use these binaries in the prebuilt images instead https://nodejs.org/download/release/v8.12.0/node-v8.12.0-linux-armv6l.tar.xz
 Create a sub folder `mkdir -p ./board/toldotechnik_rpi/rootfs-overlay/usr/bin` and copy the `node` binary into it.
 
 ### OSX terminal error when using nano
