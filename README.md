@@ -10,6 +10,7 @@
 - simple **wpe-launcher** for launching browser with custom url
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
+- mDNS, so you can access your RPi by calling rpi0.local or rpi3.local
 - **NO** keyboard or mouse input yet
 
 By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
@@ -72,12 +73,12 @@ See `/var/node/server.js` for an example.
 ### WPE WebKit browser
 If the file `/boot/url.txt` exists the fullscreen browser will start automatically after boot. You will find the init script here: `/etc/init.d/S90wpe`
 
-You can call the web inspector from an external client browser (tested with Chrome and Safari, not working with Firefox). `http://YOUR_RPI_IP:9998`
+You can call the web inspector from an external client browser (tested with Chrome and Safari, not working with Firefox). `http://rpi0.local:9998` or `http://rpi3.local:9998`
 
 If you want do disable it, you can comment out the `export WEBKIT_LEGACY_INSPECTOR_SERVER=0.0.0.0:9998` line in `/usr/bin/wpe`
 
 ### SSH, serial console
-SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@YOUR_RPI_IP`
+SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@rpi0.local` or `ssh root@rpi3.local`
 
 The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
@@ -106,8 +107,8 @@ Firstly it expands the root partition, then a reboot is invoked. After second bo
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-11-24)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-11-24)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-11-27)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-11-27)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
