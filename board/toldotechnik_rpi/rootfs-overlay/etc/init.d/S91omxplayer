@@ -8,6 +8,7 @@ start() {
 			PATH=`head -1 $VIDEO_CONFIG_FILE`
 			if [ -n "$PATH" ]; then
 					/usr/bin/omxplayer --loop $PATH &> /dev/null &
+					/usr/bin/psplash-write "PROGRESS 100"
 					echo "OK"
 			else
 			echo "NO PATH"
@@ -15,7 +16,6 @@ start() {
 	else
 		echo "NO FILE"
 	fi
-	/usr/bin/psplash-write "PROGRESS 90"
 }
 
 stop() {

@@ -15,7 +15,7 @@ start() {
 	else
 		echo "NO FILE"
 	fi
-        /usr/bin/psplash-write "PROGRESS 90"
+  /usr/bin/psplash-write "PROGRESS 90"
 }
 
 stop() {
