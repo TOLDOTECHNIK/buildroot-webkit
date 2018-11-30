@@ -124,7 +124,7 @@ Image files can be written the same way as the official Raspberry Pi images. Ple
 
 If you're using Etcher, you can take the zip files directly. You don't need to extract them.
 
-## Known issues
+## Known issues (all fixed)
 ### Node.js
 Buildroot compiled Node.js binaries do start much slower than prebuilt ones from nodejs.org
 That's why on Raspberry Pi Zero the browser gets loaded before the internal Node.js server is ready. This then results in a blank page screen.
