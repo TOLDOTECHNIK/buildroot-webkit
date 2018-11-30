@@ -43,6 +43,9 @@ cat << __EOF__ > "${BINARIES_DIR}/url.txt"
 http://localhost
 __EOF__
 
+# Create empty video.txt
+touch ${BINARIES_DIR}/video.txt
+
 # Create a sample wpa_supplicant file
 cat << __EOF__ > "${BINARIES_DIR}/wpa_supplicant.conf.example"
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev

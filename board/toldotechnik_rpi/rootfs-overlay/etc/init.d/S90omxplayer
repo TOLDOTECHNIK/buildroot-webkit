@@ -1,0 +1,48 @@
+#!/bin/sh
+
+VIDEO_CONFIG_FILE="/boot/video.txt"
+
+start() {
+	echo -n "Starting omxplayer: "
+	if [ -e "$VIDEO_CONFIG_FILE" ]; then
+			PATH=`head -1 $VIDEO_CONFIG_FILE`
+			if [ -n "$PATH" ]; then
+					/usr/bin/omxplayer --loop $PATH &> /dev/null &
+					echo "OK"
+			else
+			echo "NO PATH"
+		fi
+	else
+		echo "NO FILE"
+	fi
+	/usr/bin/psplash-write "PROGRESS 90"
+}
+
+stop() {
+	echo -n "Stopping omxplayer: "
+	killall omxplayer &> /dev/null
+	echo "OK"
+	/usr/bin/psplash-write "PROGRESS 90"
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+	start)
+		start
+		;;
+	stop)
+		stop
+	;;
+	restart|reload)
+		restart
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac
+
+exit $?

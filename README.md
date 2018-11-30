@@ -2,6 +2,7 @@
 
 - boots silently with **boot splash** including progress bar
 - boots directly into a **full screen web browser** (video and audio playback capable)
+- optionally: boots directly into full screen video player (omxplayer).
 - Node.js **webserver** included for hosting local web pages displayed in the browser
 - HDMI **CEC** support
 - SSH enabled
@@ -40,6 +41,15 @@ Below you will find the explanations of how the custom settings are made on the 
 ### URL for the browser
 Create a `/boot/url.txt` file and insert the desired link in the first line (e.g. http://localhost).
 If the file exists, the browser will start automatically after boot and the url gets loaded in it.
+
+### Full screen video player
+Our distro is capable to boot directly into a full screen video player. We use the super fast omxplayer which supports lots of codecs.
+
+To enable video playback follow these steps:
+* Put the video file path into `/boot/video.txt` It can be a local path or any url (eg. `/var/video1.mp4`).
+* Ensure to delete the `/boot/url.txt` file or its content, so the internal web browser does not get started.
+
+Video gets played in loop mode.
 
 ### WiFi configuration
 You can modify the sample `/boot/wpa_supplicant.conf.example` file on your SD card and insert your WiFi settings. After that you should rename the file into `wpa_supplicant.conf`
@@ -107,8 +117,8 @@ Firstly it expands the root partition, then a reboot is invoked. After second bo
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-11-27)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-11-27)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-11-30)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-11-30)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
