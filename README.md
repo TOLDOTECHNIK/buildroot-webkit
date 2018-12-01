@@ -9,10 +9,10 @@
 - **wpa_supplicant**, RPi Wireless drivers, Ralink drivers
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter.
 - simple **wpe-launcher** for launching browser with custom url
+- **keyboard and mouse input** support
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
 - mDNS, so you can access your RPi by calling rpi0.local or rpi3.local
-- supports keyboard and mouse input
 
 By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
 
