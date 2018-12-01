@@ -3,6 +3,7 @@
 case "$1" in
   start)
     echo "Expanding the root partition..."
+    /usr/bin/psplash-write "MSG RESIZING PARTITION - REBOOT"
     PART_START=$(parted /dev/mmcblk0 -ms unit chs p | grep ^2: | cut -f 2 -d:)
     DISK_SIZE=$(parted /dev/mmcblk0 -ms unit chs p | grep /dev/mmcblk0: | cut -f 2 -d:)
     parted /dev/mmcblk0 &>/dev/null <<EOF
