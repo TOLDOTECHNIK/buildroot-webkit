@@ -1,7 +1,9 @@
 // History
-// 2018-11-19	Init
+// 2018-11-19  Init
+// 2018-12-01  CEC name support
 
 // Dependencies
+var fs = require("fs");
 var app = require("express")();
 var server = require("http").Server(app);
 var serveStatic = require("serve-static");
@@ -13,8 +15,21 @@ const HTTP_PORT = 80;
 const HTTP_FOLDER = "/var/www/";
 
 // CEC
+var cecName = "";
+var configFileContent = fs.readFileSync("/boot/config.txt", "utf8");
+var regex = /(^cec_osd_name\s*=\s*)\w*/gm;
+var match = regex.exec(configFileContent);
+if (match) {
+  cecName = match[0].replace(match[1], "");
+}
+
 var cec = new NodeCEC();
-cec.start();
+if (cecName) {
+  cec.start(cecName);
+} else {
+  cec.start();
+}
+
 cec.on("ready", function (data) {
   console.log("cec: ready");
 });

@@ -115,10 +115,13 @@ Due to bootup speed improvement eth0 is disabled by default. You can enable it b
 The `S22resize_rootpart` init script expands the root filesystem to the maximum flash disk size on the first boot.
 Firstly it expands the root partition, then a reboot is invoked. After second boot the root filesystem gets expanded to match the partition size. After that the system is ready to use and expand init scripts gets removed.
 
+### CEC OSD name
+You can change the CEC client name in `/boot/config.txt`. Store it in the `cec_osd_name` variable. It will be shown on your screen when selecting the HDMI source.
+
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-11-30)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-11-30)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-12-01)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-12-01)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 

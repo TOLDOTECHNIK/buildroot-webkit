@@ -36,6 +36,7 @@ dtparam=audio=on
 boot_delay=0
 disable_splash=1
 enable_uart=1
+cec_osd_name=TT
 __EOF__
 
 # Create a sample url.txt
