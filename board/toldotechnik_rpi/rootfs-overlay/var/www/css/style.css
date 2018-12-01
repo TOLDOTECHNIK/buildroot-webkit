@@ -18,6 +18,14 @@ audio {
   visibility: hidden;
 }
 
+input[type=text] {
+  width: 100%;
+  padding: 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+}
+
 .bottom {
   position: absolute;
   bottom: 0;

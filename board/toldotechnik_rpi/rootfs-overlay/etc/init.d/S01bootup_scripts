@@ -3,13 +3,16 @@
 WPA_SUPPLICANT_FILE="/boot/wpa_supplicant.conf"
 
 start() {
-	echo -n "Starting..."
+	echo "Starting..."
 	if [ -e "$WPA_SUPPLICANT_FILE" ]; then
 		mv $WPA_SUPPLICANT_FILE /etc/
 		echo "/boot/wpa_supplicant.conf moved to /etc/. done."
 	else
 		echo "/boot/wpa_supplicant.conf not found, so no action. done."
 	fi
+
+	echo "Setting keyboard layout..."
+	/usr/bin/loadkeys de.map
 }
 
 stop() {

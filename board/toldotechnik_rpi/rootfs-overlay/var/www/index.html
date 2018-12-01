@@ -11,6 +11,9 @@
 
   <script>
     $(document).ready(function () {
+      // form elements
+      $("input").focus();
+
       // socket.io
       var socket = io.connect();
 
@@ -39,6 +42,7 @@
   </div>
   <div class="bottom">
     <div class="title center" id="txtCEC">Press some buttons on your tv remote. (Up, Down, ...)</div>
+    <input type="text" placeholder="Type in something ..." />
     <div class="center">Index page located in /var/www/</div>
     <div class="center">Music: https://www.bensound.com</div>
   </div>

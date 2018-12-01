@@ -12,7 +12,7 @@
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
 - mDNS, so you can access your RPi by calling rpi0.local or rpi3.local
-- **NO** keyboard or mouse input yet
+- supports keyboard and mouse input
 
 By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
 
@@ -76,7 +76,7 @@ Local web server content is located here: `/var/www/`
 libcec and corresponding node module are both preinstalled so node apps can receive HDMI CEC messages.
 See `/var/node/server.js` for an example.
 
-**Builtin local web page supporting CEC inputs.**
+**Builtin local web page supporting CEC and keyboard inputs.**
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/cec-test.gif" width="400" />
 
@@ -86,6 +86,11 @@ If the file `/boot/url.txt` exists the fullscreen browser will start automatical
 You can call the web inspector from an external client browser (tested with Chrome and Safari, not working with Firefox). `http://rpi0.local:9998` or `http://rpi3.local:9998`
 
 If you want do disable it, you can comment out the `export WEBKIT_LEGACY_INSPECTOR_SERVER=0.0.0.0:9998` line in `/usr/bin/wpe`
+
+### Keyboard and mouse input
+Attach your keyboard and it's working out of the box. Try it out in the input form control on the sample web page. Please note that the keyboard layout cannot be changed for the WPE WebKit browser yet.
+
+Mouse support in the browser window is enabled by uncommenting the `export WPE_BCMRPI_CURSOR=1` line in `/usr/bin/wpe`
 
 ### SSH, serial console
 SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@rpi0.local` or `ssh root@rpi3.local`
