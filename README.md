@@ -106,6 +106,8 @@ converter (RX) - green - (TX) RPi
 
 converter (TX) - red - (RX) RPi
 
+Connect GND to GND if you're using different power supplies for the RPi and the serial converter.
+
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/USB-serial-wiring.png" width="400" />
 
 ### Root password
@@ -130,7 +132,7 @@ Prebuilt images are freely available from our server.
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
-If you're using Etcher, you can take the zip files directly. You don't need to extract them.
+If you're using Etcher, you can take the compresed file without extracting them.
 
 ## Known issues (all fixed)
 ### Node.js
