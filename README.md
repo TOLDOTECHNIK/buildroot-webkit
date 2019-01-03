@@ -29,7 +29,7 @@ Many thanks to all the people who investigated enormous time creating the source
 # Detailed description
 Most of the adaptions are stored in the `./board/toldotechnik_rpi/rootfs-overlay` folder. After creating the `sdcard.img` it's content is placed in the root `/` folder.
 
-Two board configurations are available right now:
+Two board configurations are available at the moment:
 - `toldotechnik_rpi0_wpe_defconfig` for RPi Zero (V1.2) and RPi Zero W (V1.1), both tested
 
 All other RPi 1 boards should work as well.
@@ -120,7 +120,7 @@ Due to bootup speed improvement eth0 is disabled by default. You can enable it b
 
 ### Auto-expand rootfs on first boot
 The `S22resize_rootpart` init script expands the root filesystem to the maximum flash disk size on the first boot.
-Firstly it expands the root partition, then a reboot is invoked. After second boot the root filesystem gets expanded to match the partition size. After that the system is ready to use and expand init scripts gets removed.
+Firstly it expands the root partition, then a reboot is invoked. After second boot the root filesystem gets expanded to match the partition size. After that the system is ready to use and all the init scripts for expanding the root file system get removed.
 
 ### CEC OSD name
 You can change the CEC client name in `/boot/config.txt`. Store it in the `cec_osd_name` variable. It will be shown on your screen when selecting the HDMI source.
