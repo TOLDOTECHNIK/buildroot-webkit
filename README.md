@@ -172,7 +172,9 @@ Add our custom board configs
     cp ../buildroot-webkit/configs/toldotechnik_rpi0_wpe_defconfig ./configs
     cp ../buildroot-webkit/configs/toldotechnik_rpi3_wpe_defconfig ./configs
 
-Current WebPlatformForEmbedded/buildroot master branch does not provide the simple to use wpe-launcher anymore, so add it easily with our patch.
+The guys from WebPlatformForEmbedded switched over to their mighty tool [WPEFramework](https://github.com/WebPlatformForEmbedded/WPEFramework) which comes with a lot of [plugins](https://github.com/WebPlatformForEmbedded/WPEFrameworkPlugins), debugging and so on. For most of the cases the older and simpler to use wpe-launcher will be sufficiant.
+
+The current WebPlatformForEmbedded/buildroot master branch does not provide the wpe-launcher anymore, so add it easily with our patch again.
 
     patch -p1 < ../buildroot-webkit/0001-port-wpelauncher-from-stable.patch
 
