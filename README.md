@@ -13,8 +13,9 @@
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
 - mDNS, so you can access your RPi by calling rpi0.local or rpi3.local
+- slim buildroot distro (≈300MB) running linux 4.9 kernel. Bare system takes 12MB of RAM only!
 
-By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser!! Raspberry Pi Zero W takes 25 seconds.
+By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser! Raspberry Pi Zero W takes 25 seconds.
 
 # buildroot-webkit
 
@@ -81,7 +82,7 @@ See `/var/node/server.js` for an example.
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/cec-test.gif" width="400" />
 
 ### WPE WebKit browser
-If the file `/boot/url.txt` exists the fullscreen browser will start automatically after boot. You will find the init script here: `/etc/init.d/S90wpe`
+If the file `/boot/url.txt` exists the fullscreen browser will start automatically after boot. You will find the corresponding init script here: `/etc/init.d/S90wpe`
 
 You can call the web inspector from an external client browser (tested with Chrome and Safari, not working with Firefox). `http://rpi0.local:9998` or `http://rpi3.local:9998`
 
@@ -95,7 +96,7 @@ Mouse support in the browser window is enabled by uncommenting the `export WPE_B
 ### SSH, serial console
 SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@rpi0.local` or `ssh root@rpi3.local`
 
-The device will setup a TTY on the UART (ttyAMA0). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
+The device will setup a TTY on the UART (ttyAMA0, baud rate: 115200). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
 **Console output on ttyAMA0 while booting**
 
@@ -132,7 +133,7 @@ Prebuilt images are freely available from our server.
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
-If you're using Etcher, you can take the compresed file without extracting them.
+If you're using Etcher, you can take the compresed image file without extracting it.
 
 ## Known issues (all fixed)
 ### Node.js
@@ -157,7 +158,7 @@ Clone our repo.
 
     git clone https://github.com/TOLDOTECHNIK/buildroot-webkit.git
 
-Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `b67092fc5c92b3c09ad845296b3dc2734b91a66c` as of 2018-11-26.
+Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `b67092fc5c92b3c09ad845296b3dc2734b91a66c` as of 2019-01-03.
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
@@ -172,7 +173,7 @@ Add our custom board configs
     cp ../buildroot-webkit/configs/toldotechnik_rpi0_wpe_defconfig ./configs
     cp ../buildroot-webkit/configs/toldotechnik_rpi3_wpe_defconfig ./configs
 
-The guys from WebPlatformForEmbedded switched over to their mighty tool [WPEFramework](https://github.com/WebPlatformForEmbedded/WPEFramework) which comes with a lot of [plugins](https://github.com/WebPlatformForEmbedded/WPEFrameworkPlugins), debugging and so on. For most of the cases the older and simpler to use wpe-launcher will be sufficiant.
+The guys from WebPlatformForEmbedded switched over to their mighty tool [WPEFramework](https://github.com/WebPlatformForEmbedded/WPEFramework) which comes with a lot of [plugins](https://github.com/WebPlatformForEmbedded/WPEFrameworkPlugins), debugging and so on. For most of the cases the older and simpler to use wpe-launcher for starting up the web browser will be sufficiant.
 
 The current WebPlatformForEmbedded/buildroot master branch does not provide the wpe-launcher anymore, so add it easily with our patch again.
 
@@ -185,7 +186,7 @@ or
 
     make toldotechnik_rpi3_wpe_defconfig
 
-Before compiling you can make your own changes.
+If you want to make your own changes, run this before compiling.
 
     make menuconfig
 
