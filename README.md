@@ -1,5 +1,6 @@
 ## Features
 
+- prebuilt Raspberry Pi [images](#prebuilt-images)
 - boots silently with **boot splash** including progress bar
 - boots directly into a **full screen web browser** (video and audio playback capable)
 - optionally: boots directly into full screen video player (omxplayer).
@@ -128,8 +129,8 @@ You can change the CEC client name in `/boot/config.txt`. Store it in the `cec_o
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi0.img_.zip) (2018-12-01)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2018/11/sdcardRPi3.img_.zip) (2018-12-01)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/01/sdcardRPi0.img_.zip) (2019-01-25)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/01/sdcardRPi3.img_.zip) (2019-01-25)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
@@ -158,7 +159,7 @@ Clone our repo.
 
     git clone https://github.com/TOLDOTECHNIK/buildroot-webkit.git
 
-Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `b67092fc5c92b3c09ad845296b3dc2734b91a66c` as of 2019-01-03.
+Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `b3a832d17fa9bfd8a5b2399cf53d1b8311909e68` as of 2019-01-22.
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
