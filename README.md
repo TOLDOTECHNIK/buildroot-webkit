@@ -118,7 +118,7 @@ The root password is `root`
 Please change it after first boot: `passwd root`
 
 ### Wired network interface
-Due to bootup speed improvement eth0 is disabled by default. You can enable it by editing `/etc/network/interfaces`
+Due to bootup speed improvement eth0 is disabled by default. You can enable it by editing `/etc/network/interfaces`. If it's not working please refer to this [issue](https://github.com/TOLDOTECHNIK/buildroot-webkit/issues/6).
 
 ### Auto-expand rootfs on first boot
 The `S22resize_rootpart` init script expands the root filesystem to the maximum flash disk size on the first boot.
