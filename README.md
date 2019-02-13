@@ -141,7 +141,7 @@ If you're using Etcher, you can take the compresed image file without extracting
 Buildroot compiled Node.js binaries do start much slower than prebuilt ones from nodejs.org
 That's why on Raspberry Pi Zero the browser gets loaded before the internal Node.js server is ready. This then results in a blank page screen.
 To solve this issue we use these binaries in the prebuilt images instead https://nodejs.org/download/release/v8.12.0/node-v8.12.0-linux-armv6l.tar.xz
-Create a sub folder `mkdir -p ./board/toldotechnik_rpi/rootfs-overlay/usr/bin` and copy the `node` binary into it.
+If you're compiling your own image you can achieve this by creating a sub folder `mkdir -p ./board/toldotechnik_rpi/rootfs-overlay/usr/bin` and copy the `node` binary into it.
 
 ### OSX terminal error when using nano
 The `Error opening terminal: xterm-256color` we solved by creating the `/usr/share/terminfo/x/` folder and put in the `xterm-256color` database file.
