@@ -1,7 +1,7 @@
 ## Features
 
 - prebuilt Raspberry Pi [images](#prebuilt-images)
-- boots silently with **boot splash** including progress bar
+- boots silently with **boot splash screen** including progress bar
 - boots directly into a **full screen web browser** (video and audio playback capable)
 - optionally: boots directly into full screen video player (omxplayer).
 - Node.js **webserver** included for hosting local web pages displayed in the browser
