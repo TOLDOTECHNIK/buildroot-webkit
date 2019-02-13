@@ -129,8 +129,8 @@ You can change the CEC client name in `/boot/config.txt`. Store it in the `cec_o
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/01/sdcardRPi0.img_.zip) (2019-01-25)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/01/sdcardRPi3.img_.zip) (2019-01-25)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi0.img.zip) (2019-02-13)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi3.img.zip) (2019-02-13)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
