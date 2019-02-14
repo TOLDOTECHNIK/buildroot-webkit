@@ -134,7 +134,7 @@ Prebuilt images are freely available from our server.
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
-If you're using Etcher, you can take the compresed image file without extracting it.
+If you're using Etcher, you can take the compressed image file without extracting it.
 
 ## Known issues (all fixed)
 ### Node.js
