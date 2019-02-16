@@ -127,10 +127,13 @@ Firstly it expands the root partition, then a reboot is invoked. After second bo
 ### CEC OSD name
 You can change the CEC client name in `/boot/config.txt`. Store it in the `cec_osd_name` variable. It will be shown on your screen when selecting the HDMI source.
 
+### Timezone
+Currently, the timezone is set to `Europe/Zurich`. You can change this by editing the `/etc/timezone` file. Valid names you can find in the [time zones database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi0.img.zip) (2019-02-13)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi3.img.zip) (2019-02-13)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi0.img.zip) (2019-02-16)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi3.img.zip) (2019-02-16)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
