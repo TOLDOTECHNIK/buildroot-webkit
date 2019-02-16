@@ -63,7 +63,7 @@ Our custom company boot splash (see `patches/psplash` folder) is enabled by defa
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/splash-screen.png" width="400" />
 
-We took some init scripts and appended the `/usr/bin/psplash-write "PROGRESS xy"`, so the progress bar increases while booting and decreases when shutdown is in progress.
+We took some init scripts and appended the `/usr/bin/psplash-write "PROGRESS x"`, so the progress bar increases while booting and decreases when shutdown is in progress.
 
 ### Node.js server
 Node.js binaries and some node modules are preinstalled:
@@ -127,8 +127,13 @@ Firstly it expands the root partition, then a reboot is invoked. After second bo
 ### CEC OSD name
 You can change the CEC client name in `/boot/config.txt`. Store it in the `cec_osd_name` variable. It will be shown on your screen when selecting the HDMI source.
 
-### Timezone
-Currently, the timezone is set to `Europe/Zurich`. You can change this by editing the `/etc/timezone` file. Valid names you can find in the [time zones database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+### Time zone
+Currently, the time zone is set to `Europe/Zurich`. You can change this by editing the `/etc/timezone` file. Valid names you can find in the [time zones database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+You also have to link the corresponding zone info file:  
+`ln -sf /usr/share/zoneinfo/xx/yy /etc/localtime`  
+for example:  
+`ln -sf /usr/share/zoneinfo/US/Alaska /etc/localtime`
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
