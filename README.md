@@ -6,7 +6,7 @@
 - optionally: boots directly into full screen video player (omxplayer).
 - Node.js **webserver** included for hosting local web pages displayed in the browser
 - HDMI **CEC** support
-- SSH enabled
+- SSH enabled (including SFTP)
 - **wpa_supplicant**, RPi Wireless drivers, Ralink drivers
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter.
 - simple **wpe-launcher** for launching browser with custom url
