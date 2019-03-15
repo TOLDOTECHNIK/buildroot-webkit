@@ -38,7 +38,8 @@ All other RPi 1 boards should work as well.
 - `toldotechnik_rpi3_wpe_defconfig` for RPi 3 B (V1.2), tested
 
 ## Custom settings
-Below you will find the explanations of how the custom settings are made on the final Raspberry image installed on the SD card. If you want to apply the settings before building, you can customize the `board/toldotechnik_rpi/rootfs-overlay` folder. The link for the `url.txt` you will find in the `board/toldotechnik_rpi/post-image.sh` script.
+Below you will find the explanations of how the customization is made on the final running Raspberry Pi image.  
+If you want to apply the settings before building, you can adapt the `board/toldotechnik_rpi/rootfs-overlay` folder. The default URL for the browser is defined in  tthe `board/toldotechnik_rpi/post-image.sh` script.
 
 ### URL for the browser
 Create a `/boot/url.txt` file and insert the desired link in the first line (e.g. http://localhost).
@@ -63,7 +64,7 @@ Our custom company boot splash (see `patches/psplash` folder) is enabled by defa
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/splash-screen.png" width="400" />
 
-We took some init scripts and appended the `/usr/bin/psplash-write "PROGRESS x"`, so the progress bar increases while booting and decreases when shutdown is in progress.
+We took some existing init scripts and appended the `/usr/bin/psplash-write "PROGRESS x"` command, so the progress bar increases while booting and decreases when shutdown is in progress.
 
 ### Node.js server
 Node.js binaries and some node modules are preinstalled:
@@ -95,7 +96,7 @@ Attach your keyboard and it's working out of the box. Try it out in the input fo
 Mouse support in the browser window is enabled by uncommenting the `export WPE_BCMRPI_CURSOR=1` line in `/usr/bin/wpe`
 
 ### SSH, serial console
-SSH (dropbear) is enabled by default. You can ssh into it with `ssh root@rpi0.local` or `ssh root@rpi3.local`
+SSH (OpenSSH) is enabled by default. You can ssh into it with `ssh root@rpi0.local` or `ssh root@rpi3.local` SFTP is also supported.
 
 The device will setup a TTY on the UART (ttyAMA0, baud rate: 115200). You can connect to it with an USB serial converter. Ensure to use 3.3V level!
 
@@ -137,8 +138,8 @@ for example:
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi0.img.zip) (2019-02-16)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/02/sdcardRPi3.img.zip) (2019-02-16)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/03/sdcardRPi0.img.zip) (2019-03-15)
+- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/03/sdcardRPi3.img.zip) (2019-03-15)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
