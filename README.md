@@ -2,31 +2,31 @@
 
 - prebuilt Raspberry Pi [images](#prebuilt-images)
 - boots silently with **boot splash screen** including progress bar
-- boots directly into a **full screen web browser** (video and audio playback capable)
+- boots directly into a **full screen web browser** with custom URL (video and audio playback capable)
 - optionally: boots directly into full screen video player (omxplayer).
 - Node.js **webserver** included for hosting local web pages displayed in the browser
 - HDMI **CEC** support
 - SSH enabled (including SFTP)
 - **wpa_supplicant**, RPi Wireless drivers, Ralink drivers
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter.
-- simple **wpe-launcher** for launching browser with custom url
+- simple to use **wpe-launcher** for launching browser with custom url
 - **keyboard and mouse input** support
 - nano text editor
 - auto-expand the persistent rootfs on the first boot
 - mDNS, so you can access your RPi by calling rpi0.local or rpi3.local
 - slim buildroot distro (≈300MB) running linux 4.9 kernel. Bare system takes 12MB of RAM only!
 
-By the way: Raspberry Pi 3 boots in 14 seconds - full system, wireless network, Node.js server and fullscreen browser! Raspberry Pi Zero W takes 25 seconds.
+By the way: Raspberry Pi 3 boots up in 14 seconds - full system, wireless network, Node.js server and fullscreen browser! Raspberry Pi Zero W takes 25 seconds.
 
 # buildroot-webkit
 
-For our product expansion, we were looking for a suitable buildroot system that could launch directly into a full-screen browser. The original Buildroot offers the Qt WebEngine package ready to compile, but it is much slower in performance than usual WebKit implementations.
+We were looking for a suitable buildroot system that could launch directly into a full-screen web browser. The original Buildroot offers a ready to compile Qt WebEngine package, but it is much slower in performance than the usual WebKit implementations.
 Unfortunately, we couldn't find a solution which was suitable for our purposes.
-Compiling some of them was partly faulty, not all boards were supported and the WebKit browser cannot be started conveniently easy.
-After a very long time of work we now have made all desired adjustments. In this repository we now offer them all to the public.
+Compiling some of them was partly faulty, not all boards were supported and the WebKit browser couldn't be started conveniently easy.
+After spending a lot of time, we now have made a perfectly running system. We are glad to offer it to the public now.
 
 Many thanks to https://github.com/hlev for supporting us!
-Many thanks to all the people who investigated enormous time creating the source code for all this great software!
+Many thanks to all the people who investigated enormous time creating the source code for all the great software!
 
 # Detailed description
 Most of the adaptions are stored in the `./board/toldotechnik_rpi/rootfs-overlay` folder. After creating the `sdcard.img` it's content is placed in the root `/` folder.
@@ -138,8 +138,8 @@ for example:
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/wp-content/uploads/2019/03/sdcardRPi0.img.zip) (2019-03-15)
-- [RPi 3 B](https://dev.toldotechnik.li/wp-content/uploads/2019/03/sdcardRPi3.img.zip) (2019-03-15)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/download/387825/) (2019-03-15)
+- [RPi 3 B](https://dev.toldotechnik.li/download/387826/) (2019-03-15)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
@@ -156,7 +156,7 @@ If you're compiling your own image you can achieve this by creating a sub folder
 The `Error opening terminal: xterm-256color` we solved by creating the `/usr/share/terminfo/x/` folder and put in the `xterm-256color` database file.
 
 ### Raspberry Pis without onboard WiFi
-If your board does not have WiFi you can attach some USB Ralink WiFi adapters. We already included those drivers. RTL8188CUS and RT5370 work for sure.
+If your board does not have onboard WiFi you can attach some USB Ralink WiFi adapters. We've already included those drivers. RTL8188CUS and RT5370 work for sure.
 
 # How to build it yourself
 
