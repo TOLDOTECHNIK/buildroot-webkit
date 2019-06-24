@@ -6,15 +6,15 @@
 - optionally: boots directly into full screen video player (omxplayer).
 - Node.js **webserver** included for hosting local web pages displayed in the browser
 - HDMI **CEC** support
-- SSH enabled (including SFTP)
+- SSH enabled (including SFTP), colorful terminal like connecting to a raspbian installed device
 - **wpa_supplicant**, RPi Wireless drivers, Ralink drivers
 - The device will also setup a TTY on the UART (ttyAMA0). You can connect with an USB serial converter.
 - simple to use **wpe-launcher** for launching browser with custom url
 - **keyboard and mouse input** support
-- nano text editor
-- auto-expand the persistent rootfs on the first boot
-- mDNS, so you can access your RPi by calling rpi0.local or rpi3.local
-- slim buildroot distro (≈300MB) running linux 4.9 kernel. Bare system takes 12MB of RAM only!
+- **nano** text editor
+- auto-expand the persistent rootfs on the first boot to the **max. SD card size**
+- **mDNS**, so you can access your RPi by calling rpi0.local or rpi3.local
+- slim buildroot distro (≈300MB) running linux 4.9.80 kernel. Bare system takes 12MB of RAM only!
 
 By the way: Raspberry Pi 3 boots up in 14 seconds - full system, wireless network, Node.js server and fullscreen browser! Raspberry Pi Zero W takes 25 seconds.
 
@@ -32,10 +32,10 @@ Many thanks to all the people who investigated enormous time creating the source
 Most of the adaptions are stored in the `./board/toldotechnik_rpi/rootfs-overlay` folder. After creating the `sdcard.img` it's content is placed in the root `/` folder.
 
 Two board configurations are available at the moment:
-- `toldotechnik_rpi0_wpe_defconfig` for RPi Zero (V1.2) and RPi Zero W (V1.1), both tested
+- `toldotechnik_rpi0_wpe_defconfig` for RPi Zero (V1.3) and RPi Zero W (V1.1), both tested
 
 All other RPi 1 boards should work as well.
-- `toldotechnik_rpi3_wpe_defconfig` for RPi 3 B (V1.2), tested
+- `toldotechnik_rpi3_wpe_defconfig` for RPi 3 B (V1.2) and RPi 3 B+, both tested
 
 ## Custom settings
 Below you will find the explanations of how the customization is made on the final running Raspberry Pi image.  
@@ -138,8 +138,8 @@ for example:
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/download/387825/) (2019-03-15)
-- [RPi 3 B](https://dev.toldotechnik.li/download/387826/) (2019-03-15)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/download/387825/) (2019-06-24)
+- [RPi 3 B / 3 B+](https://dev.toldotechnik.li/download/387826/) (2019-06-24)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
@@ -149,7 +149,7 @@ If you're using Etcher, you can take the compressed image file without extractin
 ### Node.js
 Buildroot compiled Node.js binaries do start much slower than prebuilt ones from nodejs.org
 That's why on Raspberry Pi Zero the browser gets loaded before the internal Node.js server is ready. This then results in a blank page screen.
-To solve this issue we use these binaries in the prebuilt images instead https://nodejs.org/download/release/v8.12.0/node-v8.12.0-linux-armv6l.tar.xz
+To solve this issue we took the node binary from the prebuilt ones instead: https://nodejs.org/download/release/v8.16.0/node-v8.16.0-linux-armv6l.tar.gz
 If you're compiling your own image you can achieve this by creating a sub folder `mkdir -p ./board/toldotechnik_rpi/rootfs-overlay/usr/bin` and copy the `node` binary into it.
 
 ### OSX terminal error when using nano
@@ -158,7 +158,7 @@ The `Error opening terminal: xterm-256color` we solved by creating the `/usr/sha
 ### Raspberry Pis without onboard WiFi
 If your board does not have onboard WiFi you can attach some USB Ralink WiFi adapters. We've already included those drivers. RTL8188CUS and RT5370 work for sure.
 
-# How to build it yourself
+# How to build it manually
 
 ## Prerequisites (tested on Ubuntu 16.04)
     apt-get install -y git subversion bc zip build-essential bison flex gettext libncurses5-dev texinfo autoconf automake libtool libpng12-dev libglib2.0-dev libgtk2.0-dev gperf libxt-dev ccache mtools
@@ -172,7 +172,7 @@ Our implementation is based on the WebPlatformForEmbedded/buildroot repository. 
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
-	git reset --hard b3a832d17fa9bfd8a5b2399cf53d1b8311909e68
+	git reset --hard b67092fc5c92b3c09ad845296b3dc2734b91a66c
 
 Add our custom board folder
 
@@ -204,4 +204,4 @@ Finally build everything with
 
     make
 
-After some hours of compiling the final image is ready. You can find it here: `./output/images/sdcard.img`
+After some hours of compiling the final image is ready. You can take it from the output directory: `./output/images/sdcard.img`
