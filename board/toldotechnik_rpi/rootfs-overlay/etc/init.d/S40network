@@ -94,7 +94,9 @@ case "$1" in
 		/sbin/ifup -a
 	fi
 	[ $? = 0 ] && echo "OK" || echo "FAIL"
-        /usr/bin/psplash-write "PROGRESS 60"
+	if [ -x "$(command -v psplash-write)" ]; then
+    /usr/bin/psplash-write "PROGRESS 60"
+	fi
 	;;
   stop)
 	printf "Stopping network: "
@@ -104,7 +106,9 @@ case "$1" in
 		/sbin/ifdown -a
 	fi
 	[ $? = 0 ] && echo "OK" || echo "FAIL"
-        /usr/bin/psplash-write "PROGRESS 60"
+	if [ -x "$(command -v psplash-write)" ]; then
+    /usr/bin/psplash-write "PROGRESS 60"
+	fi
 	;;
   restart|reload)
 	"$0" stop

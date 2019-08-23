@@ -34,13 +34,17 @@ case "$1" in
         udevadm trigger --type=devices --action=add
         udevadm settle --timeout=30 || echo "udevadm settle failed"
         echo "done"
-        /usr/bin/psplash-write "PROGRESS 10"
+        if [ -x "$(command -v psplash-write)" ]; then
+            /usr/bin/psplash-write "PROGRESS 10"
+        fi
         ;;
     stop)
         # Stop execution of events
         udevadm control --stop-exec-queue
         killall udevd
-        /usr/bin/psplash-write "PROGRESS 10"
+        if [ -x "$(command -v psplash-write)" ]; then
+            /usr/bin/psplash-write "PROGRESS 10"
+        fi
         ;;
     *)
         echo "Usage: $0 {start|stop}"

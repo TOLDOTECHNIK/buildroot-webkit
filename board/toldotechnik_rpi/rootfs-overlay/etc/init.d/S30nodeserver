@@ -11,7 +11,9 @@ case "$1" in
     NODE_PATH=/usr/lib/node_modules
     export NODE_PATH
     $DAEMON /var/node/server.js > /dev/null 2>&1 &
-    /usr/bin/psplash-write "PROGRESS 40"
+    if [ -x "$(command -v psplash-write)" ]; then
+      /usr/bin/psplash-write "PROGRESS 40"
+    fi
     ;;
   stop)
     killall -q $NAME

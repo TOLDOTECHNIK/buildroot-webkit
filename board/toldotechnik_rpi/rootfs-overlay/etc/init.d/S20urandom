@@ -30,7 +30,9 @@ case "$1" in
 			>/dev/null 2>&1 || echo "urandom start: failed."
 		umask 022
 		[ "$VERBOSE" != no ] && echo "done."
-                /usr/bin/psplash-write "PROGRESS 20"
+			if [ -x "$(command -v psplash-write)" ]; then
+        /usr/bin/psplash-write "PROGRESS 20"
+			fi
 		;;
 	stop)
 		if ! touch /etc/random-seed 2>/dev/null
@@ -44,7 +46,9 @@ case "$1" in
 		dd if=/dev/urandom of=/etc/random-seed count=1 \
 			>/dev/null 2>&1 || echo "urandom stop: failed."
 		[ "$VERBOSE" != no ] && echo "done.
-                /usr/bin/psplash-write "PROGRESS 20""
+		if [ -x "$(command -v psplash-write)" ]; then
+      /usr/bin/psplash-write "PROGRESS 20""
+		fi
 		;;
 	*)
 		echo "Usage: urandom {start|stop}" >&2

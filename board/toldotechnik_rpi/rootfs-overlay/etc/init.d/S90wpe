@@ -15,14 +15,18 @@ start() {
 	else
 		echo "NO FILE"
 	fi
-  /usr/bin/psplash-write "PROGRESS 90"
+	if [ -x "$(command -v psplash-write)" ]; then
+  	/usr/bin/psplash-write "PROGRESS 90"
+	fi
 }
 
 stop() {
 	echo -n "Stopping WPE: "
 	killall wpe WPELauncher WPEWebProcess WPENetworkProcess &> /dev/null
 	echo "OK"
-        /usr/bin/psplash-write "PROGRESS 90"
+	if [ -x "$(command -v psplash-write)" ]; then
+    /usr/bin/psplash-write "PROGRESS 90"
+	fi
 }
 
 restart() {

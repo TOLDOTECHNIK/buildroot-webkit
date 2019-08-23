@@ -8,7 +8,9 @@ start() {
 			PATH=`head -1 $VIDEO_CONFIG_FILE`
 			if [ -n "$PATH" ]; then
 					/usr/bin/omxplayer -b --loop $PATH &> /dev/null &
-					/usr/bin/psplash-write "PROGRESS 100"
+					if [ -x "$(command -v psplash-write)" ]; then
+						/usr/bin/psplash-write "PROGRESS 100"
+					fi
 					echo "OK"
 			else
 			echo "NO PATH"
@@ -22,7 +24,9 @@ stop() {
 	echo -n "Stopping omxplayer: "
 	killall omxplayer &> /dev/null
 	echo "OK"
-	/usr/bin/psplash-write "PROGRESS 90"
+	if [ -x "$(command -v psplash-write)" ]; then
+		/usr/bin/psplash-write "PROGRESS 90"
+	fi
 }
 
 restart() {
