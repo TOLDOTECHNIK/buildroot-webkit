@@ -79,6 +79,8 @@ Local web server content is located here: `/var/www/`
 libcec and corresponding node module are both preinstalled so node apps can receive HDMI CEC messages.
 See `/var/node/server.js` for an example.
 
+If you need a _real_ web server like Apache or NGINX please refer to https://github.com/TOLDOTECHNIK/buildroot-webkit/issues/13#issuecomment-529283054.
+
 **Builtin local web page supporting CEC and keyboard inputs.**
 
 <img src="https://raw.githubusercontent.com/TOLDOTECHNIK/buildroot-webkit/master/_assets/cec-test.gif" width="400" />
