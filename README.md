@@ -162,15 +162,20 @@ If your board does not have onboard WiFi you can attach some USB Ralink WiFi ada
 
 # How to build it manually
 
-## Prerequisites (tested on Ubuntu 16.04)
-    apt-get install -y git subversion bc zip build-essential bison flex gettext libncurses5-dev texinfo autoconf automake libtool libpng12-dev libglib2.0-dev libgtk2.0-dev gperf libxt-dev ccache mtools
+## Prerequisites Ubuntu 16.04
+    apt-get install -y git subversion bc zip build-essential bison flex gettext libncurses5-dev texinfo autoconf automake libtool libpng12-dev libglib2.0-dev libgtk2.0-dev gperf libxt-dev ccache mtools libssl-dev
+
+## Prerequisites Ubuntu 18.04
+    apt-get install -y git subversion bc zip build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex  gettext libssl-dev
+
+    package/e2fsprogs from current buildroot master
 
 ## Building
 Clone our repo.
 
     git clone https://github.com/TOLDOTECHNIK/buildroot-webkit.git
 
-Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it. We actually took the master branch commit `b3a832d17fa9bfd8a5b2399cf53d1b8311909e68` as of 2019-01-22.
+Our implementation is based on the WebPlatformForEmbedded/buildroot repository. So let's clone it also. We actually took the master branch commit `b3a832d17fa9bfd8a5b2399cf53d1b8311909e68` as of 2019-01-22.
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
@@ -180,7 +185,7 @@ Add our custom board folder
 
     cp -r ../buildroot-webkit/board/toldotechnik_rpi ./board/
 
-Add our custom board configs
+Then add our custom board configs
 
     cp ../buildroot-webkit/configs/toldotechnik_rpi0_wpe_defconfig ./configs
     cp ../buildroot-webkit/configs/toldotechnik_rpi3_wpe_defconfig ./configs
