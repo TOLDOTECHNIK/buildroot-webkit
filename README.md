@@ -179,7 +179,7 @@ Our implementation is based on the WebPlatformForEmbedded/buildroot repository. 
 
     git clone https://github.com/WebPlatformForEmbedded/buildroot
 	cd buildroot
-	git reset --hard b67092fc5c92b3c09ad845296b3dc2734b91a66c
+	git reset --hard b3a832d17fa9bfd8a5b2399cf53d1b8311909e68
 
 Add our custom board folder
 
