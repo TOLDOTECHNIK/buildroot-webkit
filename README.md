@@ -166,6 +166,8 @@ If your board does not have onboard WiFi you can attach some USB Ralink WiFi ada
     apt-get install -y git subversion bc zip build-essential bison flex gettext libncurses5-dev texinfo autoconf automake libtool libpng12-dev libglib2.0-dev libgtk2.0-dev gperf libxt-dev ccache mtools libssl-dev
 
 ## Prerequisites Ubuntu 18.04
+Not fully tested! Seems to have trouble to enable nodejs package...
+
     apt-get install -y git subversion bc zip build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex  gettext libssl-dev
 
     package/e2fsprogs from current buildroot master
