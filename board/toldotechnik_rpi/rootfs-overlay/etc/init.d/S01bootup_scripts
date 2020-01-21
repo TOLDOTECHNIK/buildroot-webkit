@@ -13,6 +13,10 @@ start() {
 
 	echo "Setting keyboard layout..."
 	/usr/bin/loadkeys de.map
+
+  # Create empty folder with root permissions
+	echo "Fixing possible SSHD permission error..."
+	mkdir /var/empty 2> /dev/null
 }
 
 stop() {
