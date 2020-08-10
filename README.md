@@ -3,7 +3,7 @@
 - prebuilt Raspberry Pi [images](#prebuilt-images)
 - boots silently with **boot splash screen** including progress bar
 - boots directly into a **full screen web browser** with custom URL (video and audio playback capable)
-- optionally: boots directly into full screen video player (omxplayer).
+- optionally: boots directly into **full screen video player** (omxplayer).
 - Node.js **webserver** included for hosting local web pages displayed in the browser
 - HDMI **CEC** support
 - SSH enabled (including SFTP), colorful terminal like connecting to a raspbian installed device
