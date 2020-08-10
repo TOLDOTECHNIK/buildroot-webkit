@@ -14,6 +14,10 @@ do
 			GENIMAGE_CFG="${CUSTOM_BOARD_DIR}/genimage0.cfg"
 			echo "Genimage set to genimage0.cfg"
 		;;
+		--genimage2)
+			GENIMAGE_CFG="${CUSTOM_BOARD_DIR}/genimage2.cfg"
+			echo "Genimage set to genimage2.cfg"
+		;;
 		--genimage3)
 			GENIMAGE_CFG="${CUSTOM_BOARD_DIR}/genimage3.cfg"
 			echo "Genimage set to genimage3.cfg"
