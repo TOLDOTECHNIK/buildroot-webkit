@@ -141,6 +141,7 @@ for example:
 ## Prebuilt images
 Prebuilt images are freely available from our server.
 - [RPi Zero / Zero W](https://dev.toldotechnik.li/download/387825/) (2020-03-14)
+- [RPi 2 B](https://dev.toldotechnik.li/download/387854/) (2020-08-15)
 - [RPi 3 B / 3 B+](https://dev.toldotechnik.li/download/387826/) (2019-06-24)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
@@ -190,6 +191,7 @@ Add our custom board folder
 Then add our custom board configs
 
     cp ../buildroot-webkit/configs/toldotechnik_rpi0_wpe_defconfig ./configs
+    cp ../buildroot-webkit/configs/toldotechnik_rpi2_wpe_defconfig ./configs
     cp ../buildroot-webkit/configs/toldotechnik_rpi3_wpe_defconfig ./configs
 
 The guys from WebPlatformForEmbedded switched over to their mighty tool [WPEFramework](https://github.com/WebPlatformForEmbedded/WPEFramework) which comes with a lot of [plugins](https://github.com/WebPlatformForEmbedded/WPEFrameworkPlugins), debugging and so on. For most of the cases the older and simpler to use wpe-launcher for starting up the web browser will be sufficiant.
@@ -202,7 +204,8 @@ Everything is ready now. You can load your board's configuration by typing
 
     make toldotechnik_rpi0_wpe_defconfig
 or
-
+    make toldotechnik_rpi2_wpe_defconfig
+or
     make toldotechnik_rpi3_wpe_defconfig
 
 If you want to make your own changes, run this before compiling.
