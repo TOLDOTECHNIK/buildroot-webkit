@@ -164,6 +164,14 @@ If your board does not have onboard WiFi you can attach some USB Ralink WiFi ada
 # How to build it manually
 
 ## Prerequisites Ubuntu 16.04
+To get the `git` tools working again you have to update them:
+
+    add-apt-repository -y ppa:git-core/ppa
+    apt-get update
+    apt-get install git -y
+
+Install the packages:
+
     apt-get install -y git subversion bc zip build-essential bison flex gettext libncurses5-dev texinfo autoconf automake libtool libpng12-dev libglib2.0-dev libgtk2.0-dev gperf libxt-dev ccache mtools libssl-dev
 
 ## Prerequisites Ubuntu 18.04
@@ -217,3 +225,5 @@ Finally build everything with
     make
 
 After some hours of compiling the final image is ready. You can take it from the output directory: `./output/images/sdcard.img`
+
+Note: At the time of this writing (02/25/2023), the Node.js module `sockt.io` cannot be built automatically. `socket.io` should be disabled in `.config` and copied manually from a precompiled image after the build.
