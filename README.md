@@ -140,9 +140,9 @@ for example:
 
 ## Prebuilt images
 Prebuilt images are freely available from our server.
-- [RPi Zero / Zero W](https://dev.toldotechnik.li/download/387825/) (2020-03-14)
-- [RPi 2 B](https://dev.toldotechnik.li/download/387854/) (2020-08-15)
-- [RPi 3 B / 3 B+](https://dev.toldotechnik.li/download/387826/) (2019-06-24)
+- [RPi Zero / Zero W](https://dev.toldotechnik.li/download/sdcardRPi0.img.zip) (2020-03-14)
+- [RPi 2 B](https://dev.toldotechnik.li/download/sdcardRPi2.img.zip) (2020-08-15)
+- [RPi 3 B / 3 B+](https://dev.toldotechnik.li/download/sdcardRPi3.img.zip) (2019-06-24)
 
 Image files can be written the same way as the official Raspberry Pi images. Please see https://www.raspberrypi.org/documentation/installation/installing-images/
 
