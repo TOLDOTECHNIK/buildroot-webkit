@@ -1,6 +1,6 @@
 
 > [!IMPORTANT]
-> For Raspberry Pi 4 and 5, refer to our new GitHub project: [Raspberry Pi Kiosk Display System](https://github.com/TOLDOTECHNIK/Raspberry-Pi-Kiosk-Display-System/blob/main/README.md).
+> For Raspberry Pi 4 and 5, refer to our new GitHub project: [Raspberry Pi Kiosk Display System](https://github.com/TOLDOTECHNIK/Raspberry-Pi-Kiosk-Display-System).
 
 
 ## This project's features
