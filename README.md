@@ -1,6 +1,11 @@
-## Features
+#### <font color="red">For Raspberry Pi 4 and 5 !</font>
 
-- prebuilt Raspberry Pi [images](#prebuilt-images)
+For Raspberry Pi 4 and 5, refer to our new GitHub project: [Raspberry Pi Kiosk Display System](https://github.com/TOLDOTECHNIK/Raspberry-Pi-Kiosk-Display-System/blob/main/README.md).
+
+
+## This project's features
+- for Raspberry Pi 0 - 3
+- prebuilt [images](#prebuilt-images)
 - boots silently with **boot splash screen** including progress bar
 - boots directly into a **full screen web browser** with custom URL (video and audio playback capable)
 - optionally: boots directly into **full screen video player** (omxplayer).
