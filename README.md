@@ -1,6 +1,6 @@
-#### <font color="red">For Raspberry Pi 4 and 5 !</font>
 
-For Raspberry Pi 4 and 5, refer to our new GitHub project: [Raspberry Pi Kiosk Display System](https://github.com/TOLDOTECHNIK/Raspberry-Pi-Kiosk-Display-System/blob/main/README.md).
+> [!IMPORTANT]
+> For Raspberry Pi 4 and 5, refer to our new GitHub project: [Raspberry Pi Kiosk Display System](https://github.com/TOLDOTECHNIK/Raspberry-Pi-Kiosk-Display-System/blob/main/README.md).
 
 
 ## This project's features
